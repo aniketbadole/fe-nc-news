@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import Articles from "./components/Articles";
 import { Router } from "@reach/router";
 import Home from "./components/Home";
+import ArticleById from "./components/ArticleById";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Router>
         <Home path="/" />
         <Articles path="/articles" />
+        <ArticleById path="/articles/:article_id" />
       </Router>
     </div>
   );
