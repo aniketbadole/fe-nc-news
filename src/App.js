@@ -2,13 +2,20 @@ import React from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
+import Articles from "./components/Articles";
+import { Router } from "@reach/router";
+import Home from "./components/Home";
 
 function App() {
   return (
-    <main className="App">
+    <div className="App">
       <Header className="App-header" />
       <Nav />
-    </main>
+      <Router>
+        <Home path="/" />
+        <Articles path="/articles" />
+      </Router>
+    </div>
   );
 }
 

@@ -47,5 +47,49 @@
 
 body {
   background-color: #dae0e6;
-  display: grid | inline-grid;
+  /* display: grid | inline-grid; */
+}
+
+nav {
+  background-color: white;
+}
+
+nav li {
+  list-style: none;
+  float: left;
+}
+
+nav button {
+  padding: 18px;
+  float: right;
+}
+
+nav ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  background-color: #111111;
+}
+
+h2 {
+  color: #333333;
+}
+
+.articleBox {
+  border-radius: 2px;
+  border: 2px;
+  margin-bottom: 5px;
 }
