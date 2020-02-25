@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@reach/router";
 
 const ArticleBox = ({
   article_id,
@@ -11,12 +12,12 @@ const ArticleBox = ({
   votes
 }) => {
   return (
-    <div className="articleBox">
-      <p className="authorAndCreatedAt">
-        author: {author} created at: {created_at}
-      </p>
-      <h2 className="boxTitle">{title}</h2>
-    </div>
+    <Link to={`/articles/${article_id}`}>
+      <div className="card">
+        <p className="author-card">{author}</p>
+        <h2 className="title-black">{title}</h2>
+      </div>
+    </Link>
   );
 };
 
