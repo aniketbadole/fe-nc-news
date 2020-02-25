@@ -16,6 +16,10 @@ const ArticleBox = ({
       <div className="card">
         <p className="author-card">{author}</p>
         <h2 className="title-black">{title}</h2>
+        <p>
+          Comments: {comment_count} Votes: {votes}
+        </p>
+        <p>created: {created_at}</p>
       </div>
     </Link>
   );
