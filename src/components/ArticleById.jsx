@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-// import axios from "axios";
+import { Link } from "@reach/router";
+import CommentsList from "./CommentsList";
 import * as api from "../api";
 
 class ArticleById extends Component {
   state = {
     article: {},
-    isLoading: true
+    comments: [],
+    isLoading: true,
+    areCommentsVisible: false
   };
   render() {
     const {
@@ -25,7 +28,9 @@ class ArticleById extends Component {
         ) : (
           <div>
             <h1>{title}</h1>
-            <h2>{author}</h2>
+            <Link to={`/users/${author}`}>
+              <h2>{author}</h2>
+            </Link>
             <h3>
               {created_at} in {topic}
             </h3>
@@ -34,6 +39,8 @@ class ArticleById extends Component {
               Votes: {votes} Article ID: {article_id}
             </h4>
             <h4>Comments: {comment_count}</h4>
+            <button>show all comments</button>
+            <CommentsList article_id={article_id} />
           </div>
         )}
       </main>
@@ -52,7 +59,6 @@ class ArticleById extends Component {
   // };
 
   componentDidMount() {
-    // this.getArticle();
     const { article_id } = this.props;
     api.getArticleByID(article_id).then(data => {
       this.setState({ article: data.article, isLoading: false });

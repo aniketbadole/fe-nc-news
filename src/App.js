@@ -6,6 +6,9 @@ import Articles from "./components/Articles";
 import { Router } from "@reach/router";
 import Home from "./components/Home";
 import ArticleById from "./components/ArticleById";
+import Footer from "./components/Footer";
+import UserByUsername from "./components/UserByUsername";
+import CommentsList from "./components/CommentsList";
 
 function App() {
   return (
@@ -16,7 +19,10 @@ function App() {
         <Home path="/" />
         <Articles path="/articles" />
         <ArticleById path="/articles/:article_id" />
+        <UserByUsername path="/users/:username" />
+        <CommentsList path="/articles/:article_id/comments" />
       </Router>
+      <Footer />
     </div>
   );
 }

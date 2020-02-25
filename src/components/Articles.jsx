@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ArticlesList from "./ArticlesList";
-// import axios from "axios";
 import * as api from "../api";
 
 class Articles extends Component {

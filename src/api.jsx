@@ -9,8 +9,21 @@ export const getAllArticles = () => {
 };
 
 export const getArticleByID = article_id => {
-  console.log(article_id, "in api.jsx getArticleByID");
   return axios.get(baseUrl + `/articles/${article_id}`).then(({ data }) => {
     return data;
   });
+};
+
+export const getUserByUsername = username => {
+  return axios.get(baseUrl + `/users/${username}`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const getCommentsByArticleId = article_id => {
+  return axios
+    .get(baseUrl + `/articles/${article_id}/comments`)
+    .then(({ data }) => {
+      return data;
+    });
 };

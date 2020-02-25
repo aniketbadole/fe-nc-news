@@ -141,3 +141,26 @@ h3 {
 a {
   text-decoration: none;
 }
+
+/* footer {
+  background-color: white;
+  display: flex;
+  flex-direction: column; */
+/* align-items: center; */
+/* justify-content: center; */
+/* text-align: left;
+  color: #2b2f37;
+  padding-left: 10px;
+  padding-top: 10px;
+} */
+
+/* main {
+  min-height: 500px;
+} */
+
+.each-comment {
+  box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25),
+    -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
+  list-style: none;
+  width: 90%;
+}
