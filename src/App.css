@@ -84,7 +84,9 @@ nav li a:hover {
   background-color: #111111;
 }
 
-h2 {
+h1,
+h2,
+h3 {
   color: #333333;
 }
 
@@ -133,5 +135,9 @@ h2 {
 
 .author-card {
   color: #333333;
+  text-decoration: none;
+}
+
+a {
   text-decoration: none;
 }

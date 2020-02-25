@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Axios from "axios";
+// import axios from "axios";
+import * as api from "../api";
 
 class ArticleById extends Component {
   state = {
@@ -39,18 +40,23 @@ class ArticleById extends Component {
     );
   }
 
-  getArticle = () => {
-    console.log(this.props.article_id);
-    Axios.get(
-      `https://aniket-nc-news.herokuapp.com/api/articles/${this.props.article_id}`
-    ).then(({ data }) => {
-      console.log(data, "***");
-      this.setState({ article: data.article, isLoading: false });
-    });
-  };
+  // getArticle = () => {
+  //   console.log(this.props.article_id, "get article");
+  //   axios
+  //     .get(
+  //       `https://aniket-nc-news.herokuapp.com/api/articles/${this.props.article_id}`
+  //     )
+  //     .then(({ data }) => {
+  //       this.setState({ article: data.article, isLoading: false });
+  //     });
+  // };
 
   componentDidMount() {
-    this.getArticle();
+    // this.getArticle();
+    const { article_id } = this.props;
+    api.getArticleByID(article_id).then(data => {
+      this.setState({ article: data.article, isLoading: false });
+    });
   }
 }
 

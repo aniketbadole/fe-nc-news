@@ -2,7 +2,6 @@ import React from "react";
 import ArticleBox from "./ArticleBox";
 
 const ArticlesList = props => {
-  console.log(props);
   return (
     <div className="cards-list">
       {props.articles.map(art => {

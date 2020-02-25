@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ArticlesList from "./ArticlesList";
-import axios from "axios";
+// import axios from "axios";
+import * as api from "../api";
 
 class Articles extends Component {
   state = {
@@ -21,16 +22,19 @@ class Articles extends Component {
     );
   }
 
-  getAllArticles = () => {
-    axios
-      .get("https://aniket-nc-news.herokuapp.com/api/articles")
-      .then(({ data }) => {
-        this.setState({ articles: data.articles, isLoading: false });
-      });
-  };
+  // getAllArticles = () => {
+  //   axios
+  //     .get("https://aniket-nc-news.herokuapp.com/api/articles")
+  //     .then(({ data }) => {
+  //       this.setState({ articles: data.articles, isLoading: false });
+  //     });
+  // };
 
   componentDidMount() {
-    this.getAllArticles();
+    // this.getAllArticles();
+    api.getAllArticles().then(data => {
+      this.setState({ articles: data.articles, isLoading: false });
+    });
   }
 }
 
