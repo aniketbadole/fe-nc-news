@@ -6,7 +6,6 @@ class CommentsList extends Component {
     comments: []
   };
   render() {
-    const { comment_id, author, votes, created_at, body } = this.state.comments;
     return (
       <ul className="comments-card">
         {this.state.comments.map(eachComment => {

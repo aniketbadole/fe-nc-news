@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import CommentsList from "./CommentsList";
 import * as api from "../api";
+import ToggleComments from "./ToggleComments";
 
 class ArticleById extends Component {
   state = {
     article: {},
     comments: [],
-    isLoading: true,
-    areCommentsVisible: false
+    isLoading: true
   };
   render() {
     const {
@@ -39,8 +39,9 @@ class ArticleById extends Component {
               Votes: {votes} Article ID: {article_id}
             </h4>
             <h4>Comments: {comment_count}</h4>
-            <button>show all comments</button>
-            <CommentsList article_id={article_id} />
+            <ToggleComments>
+              <CommentsList article_id={article_id} />
+            </ToggleComments>
           </div>
         )}
       </main>

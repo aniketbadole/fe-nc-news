@@ -27,3 +27,9 @@ export const getCommentsByArticleId = article_id => {
       return data;
     });
 };
+
+export const getTopics = () => {
+  return axios.get(baseUrl + `/topics`).then(({ data }) => {
+    return data;
+  });
+};
