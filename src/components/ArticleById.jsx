@@ -48,17 +48,6 @@ class ArticleById extends Component {
     );
   }
 
-  // getArticle = () => {
-  //   console.log(this.props.article_id, "get article");
-  //   axios
-  //     .get(
-  //       `https://aniket-nc-news.herokuapp.com/api/articles/${this.props.article_id}`
-  //     )
-  //     .then(({ data }) => {
-  //       this.setState({ article: data.article, isLoading: false });
-  //     });
-  // };
-
   componentDidMount() {
     const { article_id } = this.props;
     api.getArticleByID(article_id).then(data => {

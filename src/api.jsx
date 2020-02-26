@@ -2,10 +2,15 @@ import axios from "axios";
 
 const baseUrl = "https://aniket-nc-news.herokuapp.com/api/";
 
-export const getAllArticles = () => {
-  return axios.get(baseUrl + "/articles").then(({ data }) => {
-    return data;
-  });
+export const getAllArticles = query => {
+  console.log(query, "query here");
+  const { sort_by, order, topic } = query;
+
+  return axios
+    .get(baseUrl + "/articles", { params: { sort_by, order, topic } })
+    .then(({ data }) => {
+      return data;
+    });
 };
 
 export const getArticleByID = article_id => {
@@ -33,3 +38,13 @@ export const getTopics = () => {
     return data;
   });
 };
+
+// export const filterTopics = query => {
+//   console.log(query, "query");
+//   const { topic } = query;
+//   return axios
+//     .get(baseUrl + `/articles`, { params: { topic } })
+//     .then(({ data }) => {
+//       return data;
+//     });
+// };

@@ -14,7 +14,9 @@ const ArticleBox = ({
   return (
     <Link to={`/articles/${article_id}`}>
       <div className="card">
-        <p className="author-card">{author}</p>
+        <p className="author-card">
+          {author} in {topic}
+        </p>
         <h2 className="title-black">{title}</h2>
         <p>
           Comments: {comment_count} Votes: {votes}

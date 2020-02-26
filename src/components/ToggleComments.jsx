@@ -14,14 +14,9 @@ class ToggleComments extends Component {
   }
 
   showComments = event => {
-    this.setState(
-      currentState => {
-        return { areCommentsVisible: !currentState.areCommentsVisible };
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
+    this.setState(currentState => {
+      return { areCommentsVisible: !currentState.areCommentsVisible };
+    });
   };
 }
 

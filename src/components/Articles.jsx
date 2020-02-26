@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import ArticlesList from "./ArticlesList";
 import * as api from "../api";
-import axios from "axios";
 
 class Articles extends Component {
   state = {
     articles: [],
-    name: "",
+    isSorting: false,
     isLoading: true
   };
 
@@ -27,6 +26,12 @@ class Articles extends Component {
             <button name="votes" onClick={this.handleClick}>
               votes
             </button>
+            <button name="topic" onClick={this.handleClick}>
+              topics
+            </button>
+            <button name="author" onClick={this.handleClick}>
+              author
+            </button>
             <ArticlesList articles={this.state.articles} />
           </div>
         )}
@@ -35,21 +40,25 @@ class Articles extends Component {
   }
 
   handleClick = event => {
-    console.log(event.target.name);
-    console.log(this.state, "**");
     event.preventDefault();
-    axios
-      .get(
-        `https://aniket-nc-news.herokuapp.com/api/articles?sort_by=${event.target.name}`,
-        { name: this.state.name }
-      )
-      .then(({ data }) => {
-        this.setState({ articles: data.articles });
+    console.log(event.target.name);
+    let query = {};
+    if (this.state.isSorting === false) {
+      query.sort_by = event.target.name;
+      query.order = "asc";
+    } else {
+      query.sort_by = event.target.name;
+      query.order = "desc";
+    }
+    api.getAllArticles(query).then(data => {
+      this.setState(currentState => {
+        return { articles: data.articles, isSorting: !currentState.isSorting };
       });
+    });
   };
 
   componentDidMount() {
-    api.getAllArticles().then(data => {
+    api.getAllArticles({}).then(data => {
       this.setState({ articles: data.articles, isLoading: false });
     });
   }
