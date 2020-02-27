@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import * as api from "../api";
-// import { Link } from "@reach/router";
+// import * as api from "../api";
+import { Link } from "@reach/router";
 
 class ArticleByTopic extends Component {
   state = {
@@ -9,13 +9,17 @@ class ArticleByTopic extends Component {
   render() {
     console.log(this.state.articles);
     const { articles } = this.state;
+    console.log(this.props, "props");
+
     return (
       <div>
         <h2>{this.props.topic}</h2>
         {articles.map(eachArticle => {
           return (
             <div className="card" key={eachArticle.article_id}>
-              <h3>{eachArticle.title}</h3>
+              <Link to={`/articles/${eachArticle.article_id}`}>
+                <h3>{eachArticle.title}</h3>
+              </Link>
               <h4>{eachArticle.author}</h4>
               <p>
                 Votes: {eachArticle.votes} Comments: {eachArticle.comment_count}
@@ -28,12 +32,12 @@ class ArticleByTopic extends Component {
     );
   }
 
-  componentDidMount() {
-    const { topic } = this.props;
-    api.getAllArticles({ topic }).then(data => {
-      this.setState({ articles: data.articles });
-    });
-  }
+  // componentDidMount() {
+  //   const { topic } = this.props;
+  //   api.getAllArticles({ topic }).then(data => {
+  //     this.setState({ articles: data.articles });
+  //   });
+  // }
 }
 
 export default ArticleByTopic;

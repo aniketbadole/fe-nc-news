@@ -6,10 +6,14 @@ class Articles extends Component {
   state = {
     articles: [],
     isSorting: false,
-    isLoading: true
+    isLoading: true,
+    selectedTopic: null
   };
 
   render() {
+    console.log(this.props, "**********");
+    console.log(this.state.selectedTopic);
+
     return (
       <main>
         {this.state.isLoading ? (
@@ -26,9 +30,6 @@ class Articles extends Component {
             <button name="votes" onClick={this.handleClick}>
               votes
             </button>
-            <button name="topic" onClick={this.handleClick}>
-              topics
-            </button>
             <button name="author" onClick={this.handleClick}>
               author
             </button>
@@ -41,7 +42,8 @@ class Articles extends Component {
 
   handleClick = event => {
     event.preventDefault();
-    console.log(event.target.name);
+    console.log(this.props, "here!!!");
+
     let query = {};
     if (this.state.isSorting === false) {
       query.sort_by = event.target.name;
@@ -57,11 +59,47 @@ class Articles extends Component {
     });
   };
 
+  // filterTopics = event => {
+  //   console.log(event, "hererere");
+
+  //   this.setState({ selectedTopic: this.props.topic });
+  // };
+
   componentDidMount() {
-    api.getAllArticles({}).then(data => {
-      this.setState({ articles: data.articles, isLoading: false });
+    // api.getAllArticles({}).then(data => {
+    //   this.setState({
+    //     articles: data.articles,
+    //     isLoading: false
+    //     // selectedTopic: this.props.topic
+    //   });
+    // });
+    this.fetchArticles({}).then(data => {
+      this.setState({
+        articles: data.articles,
+        isLoading: false
+      });
     });
   }
+
+  // componentDidUpdate(prevProps) {
+  //   console.log(prevProps.topic, this.props.topic, "???");
+  //   if (this.props.topic !== prevProps.topic) {
+  //     let query = { topic: this.props.topic };
+  //     return api.getAllArticles(query).then(data => {
+  //       console.log(data, "cdu data");
+  //       this.setState({ articles: data.articles });
+  //     });
+  //   }
+  // }
+
+  fetchArticles = () => {
+    let query = { topic: this.props.topic };
+    return api.getAllArticles(query);
+    // .then(data => {
+    //   console.log(data, "data");
+    //   this.setState({ articles: data.articles });
+    // });
+  };
 }
 
 export default Articles;

@@ -39,6 +39,25 @@ export const getTopics = () => {
   });
 };
 
+export const postComment = (article_id, username, body) => {
+  return (
+    axios
+      .post(baseUrl + `/articles/${article_id}/comments`, { username, body })
+      // .send({ username, body })
+      .then(({ data }) => {
+        return data;
+      })
+  );
+};
+
+export const appendVotes = (comment_id, voteChange) => {
+  return axios
+    .patch(baseUrl + `/comments/${comment_id}`, { inc_votes: voteChange })
+    .then(({ data }) => {
+      return data;
+    });
+};
+
 // export const filterTopics = query => {
 //   console.log(query, "query");
 //   const { topic } = query;

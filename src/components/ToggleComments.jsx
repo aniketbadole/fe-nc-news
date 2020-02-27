@@ -7,7 +7,9 @@ class ToggleComments extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.showComments}>show all comments</button>
+        <button onClick={this.showComments}>
+          {this.state.areCommentsVisible ? "Hide comments" : "Show comments"}
+        </button>
         {this.state.areCommentsVisible && <div>{this.props.children}</div>}
       </div>
     );

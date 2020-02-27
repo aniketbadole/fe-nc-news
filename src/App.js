@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 import UserByUsername from "./components/UserByUsername";
 import CommentsList from "./components/CommentsList";
 import Topics from "./components/Topics";
-import ArticleByTopic from "./components/ArticleByTopic";
+// import ArticleByTopic from "./components/ArticleByTopic";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         <UserByUsername path="/users/:username" />
         <CommentsList path="/articles/:article_id/comments" />
         <Topics path="/topics" />
-        <ArticleByTopic path="/topics/:topic" />
+        <Articles path="/topics/:topic" />
       </Router>
       <Footer />
     </div>
