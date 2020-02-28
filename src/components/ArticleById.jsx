@@ -27,7 +27,7 @@ class ArticleById extends Component {
         {this.state.isLoading ? (
           <p>Loading, please wait...</p>
         ) : (
-          <div>
+          <div className="article-body">
             <h1>{title}</h1>
             <Link to={`/users/${author}`}>
               <h2>{author}</h2>
@@ -35,7 +35,7 @@ class ArticleById extends Component {
             <h3>
               {created_at} in {topic}
             </h3>
-            <p>{body}</p>
+            <p className="article-body">{body}</p>
             <ChangeVotes votes={votes} article_id={article_id} />
             <h4>
               {/* Votes: {votes}  */}

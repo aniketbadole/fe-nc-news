@@ -14,9 +14,14 @@ export const getAllArticles = query => {
 };
 
 export const getArticleByID = article_id => {
-  return axios.get(baseUrl + `/articles/${article_id}`).then(({ data }) => {
-    return data;
-  });
+  return axios
+    .get(baseUrl + `/articles/${article_id}`)
+    .then(({ data }) => {
+      return data;
+    })
+    .catch(err => {
+      return err;
+    });
 };
 
 export const getUserByUsername = username => {

@@ -26,7 +26,7 @@ function App() {
         <CommentsList path="/articles/:article_id/comments" />
         <Topics path="/topics" />
         <Articles path="/topics/:topic" />
-        <ErrorPage path="/*" />
+        <ErrorPage default />
       </Router>
       <Footer />
     </div>

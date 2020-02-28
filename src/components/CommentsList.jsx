@@ -18,7 +18,7 @@ class CommentsList extends Component {
             <input
               type="text"
               name="body"
-              size="50"
+              size="40"
               onChange={this.handleChange}
               value={this.state.body}
             />

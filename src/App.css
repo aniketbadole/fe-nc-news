@@ -163,4 +163,37 @@ main {
   list-style: none;
   padding-bottom: 5px;
   width: 90%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.article-body {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.article-body h2 {
+  font-size: 1.35em;
+}
+.article-body h3 {
+  font-size: 1em;
+}
+
+.article-body p {
+  text-align: justify;
+  color: #333333;
+}
+
+.article-body button {
+  margin: 2px;
+  /* background-color: darkgray; */
+  /* color: aliceblue; */
+}
+
+.article-body span {
+  font-size: 0.9em;
+}
+
+.article-body h4 {
+  font-size: 0.8em;
 }
