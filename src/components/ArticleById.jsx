@@ -3,6 +3,7 @@ import { Link } from "@reach/router";
 import CommentsList from "./CommentsList";
 import * as api from "../api";
 import ToggleComments from "./ToggleComments";
+import ChangeVotes from "./ChangeVotes";
 
 class ArticleById extends Component {
   state = {
@@ -35,8 +36,10 @@ class ArticleById extends Component {
               {created_at} in {topic}
             </h3>
             <p>{body}</p>
+            <ChangeVotes votes={votes} article_id={article_id} />
             <h4>
-              Votes: {votes} Article ID: {article_id}
+              {/* Votes: {votes}  */}
+              Article ID: {article_id}
             </h4>
             <h4>Comments: {comment_count}</h4>
             <ToggleComments>

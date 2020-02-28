@@ -16,7 +16,7 @@ class UserByUsername extends Component {
           <div>
             <h1>Name: {name}</h1>
             <h2>username: {username}</h2>
-            <p>url: {avatar_url}</p>
+            <img src={avatar_url} alt="Avatar" />
           </div>
         )}
       </main>

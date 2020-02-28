@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "https://aniket-nc-news.herokuapp.com/api/";
+const baseUrl = "https://aniket-nc-news.herokuapp.com/api";
 
 export const getAllArticles = query => {
   console.log(query, "query here");
@@ -40,14 +40,19 @@ export const getTopics = () => {
 };
 
 export const postComment = (article_id, username, body) => {
-  return (
-    axios
-      .post(baseUrl + `/articles/${article_id}/comments`, { username, body })
-      // .send({ username, body })
-      .then(({ data }) => {
-        return data;
-      })
-  );
+  return axios
+    .post(baseUrl + `/articles/${article_id}/comments`, { username, body })
+    .then(({ data }) => {
+      return data;
+    });
+};
+
+//ongoing
+export const deleteComment = comment_id => {
+  return axios.delete(baseUrl + `/comments/${comment_id}`).then(({ data }) => {
+    console.log(data, "whats data?");
+    return data;
+  });
 };
 
 export const appendVotes = (comment_id, voteChange) => {
@@ -58,12 +63,10 @@ export const appendVotes = (comment_id, voteChange) => {
     });
 };
 
-// export const filterTopics = query => {
-//   console.log(query, "query");
-//   const { topic } = query;
-//   return axios
-//     .get(baseUrl + `/articles`, { params: { topic } })
-//     .then(({ data }) => {
-//       return data;
-//     });
-// };
+export const appendArticleVotes = (article_id, voteChange) => {
+  return axios
+    .patch(baseUrl + `/articles/${article_id}`, { inc_votes: voteChange })
+    .then(({ data }) => {
+      return data;
+    });
+};

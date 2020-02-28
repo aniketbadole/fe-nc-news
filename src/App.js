@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import UserByUsername from "./components/UserByUsername";
 import CommentsList from "./components/CommentsList";
 import Topics from "./components/Topics";
+import ErrorPage from "./components/ErrorPage";
 // import ArticleByTopic from "./components/ArticleByTopic";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <CommentsList path="/articles/:article_id/comments" />
         <Topics path="/topics" />
         <Articles path="/topics/:topic" />
+        <ErrorPage path="/*" />
       </Router>
       <Footer />
     </div>
