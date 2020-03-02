@@ -11,9 +11,6 @@ class Articles extends Component {
   };
 
   render() {
-    console.log(this.props, "**********");
-    console.log(this.state.selectedTopic);
-
     return (
       <main>
         {this.state.isLoading ? (
@@ -42,7 +39,6 @@ class Articles extends Component {
 
   handleClick = event => {
     event.preventDefault();
-    console.log(this.props, "here!!!");
 
     let query = {};
     if (this.state.isSorting === false) {
@@ -60,7 +56,6 @@ class Articles extends Component {
   };
 
   // filterTopics = event => {
-  //   console.log(event, "hererere");
 
   //   this.setState({ selectedTopic: this.props.topic });
   // };
@@ -82,11 +77,9 @@ class Articles extends Component {
   }
 
   // componentDidUpdate(prevProps) {
-  //   console.log(prevProps.topic, this.props.topic, "???");
   //   if (this.props.topic !== prevProps.topic) {
   //     let query = { topic: this.props.topic };
   //     return api.getAllArticles(query).then(data => {
-  //       console.log(data, "cdu data");
   //       this.setState({ articles: data.articles });
   //     });
   //   }
@@ -96,7 +89,6 @@ class Articles extends Component {
     let query = { topic: this.props.topic };
     return api.getAllArticles(query);
     // .then(data => {
-    //   console.log(data, "data");
     //   this.setState({ articles: data.articles });
     // });
   };

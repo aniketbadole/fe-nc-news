@@ -3,7 +3,6 @@ import axios from "axios";
 const baseUrl = "https://aniket-nc-news.herokuapp.com/api";
 
 export const getAllArticles = query => {
-  console.log(query, "query here");
   const { sort_by, order, topic } = query;
 
   return axios
@@ -54,9 +53,12 @@ export const postComment = (article_id, username, body) => {
 
 //ongoing
 export const deleteComment = comment_id => {
-  return axios.delete(baseUrl + `/comments/${comment_id}`).then(({ data }) => {
-    console.log(data, "whats data?");
-    return data;
+  console.log(comment_id, "data");
+
+  return axios.delete(baseUrl + `/comments/${comment_id}`).then(res => {
+    console.log(res, "data in api");
+
+    return res;
   });
 };
 

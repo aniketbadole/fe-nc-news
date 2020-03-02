@@ -9,9 +9,7 @@ class ArticleByTopic extends Component {
     articles: []
   };
   render() {
-    console.log(this.state.articles);
     const { articles } = this.state;
-    console.log(this.props, "props");
 
     return (
       <div>

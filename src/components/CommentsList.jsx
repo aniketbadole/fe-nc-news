@@ -60,22 +60,18 @@ class CommentsList extends Component {
   }
 
   handleChange = event => {
-    console.log(event.target.name);
     this.setState({ [event.target.name]: event.target.value });
   };
 
   postNewComment = event => {
     event.preventDefault();
-    console.log(event);
     const { username, body } = this.state;
-    console.log(username, body);
     api.postComment(this.props.article_id, username, body).then(newComment => {
       this.addItem(newComment);
     });
   };
 
   addItem = newComment => {
-    console.log(newComment, "this is the new comment");
     this.setState(state => {
       return { comments: [newComment.comment, ...state.comments] };
     });
@@ -83,6 +79,8 @@ class CommentsList extends Component {
 
   componentDidMount() {
     const { article_id } = this.props;
+    console.log(article_id, "cdm");
+
     api.getCommentsByArticleId(article_id).then(data => {
       this.setState({ comments: data.comments });
     });
@@ -91,7 +89,7 @@ class CommentsList extends Component {
   handleDeleteComment = comment_id => {
     console.log(comment_id, "<< comment_id");
     api.deleteComment(comment_id).then(deleted_comment => {
-      this.removeComment(deleted_comment);
+      this.removeComment(comment_id);
     });
   };
 
@@ -106,6 +104,14 @@ class CommentsList extends Component {
       };
     });
   };
+  // componentDidUpdate(prevProps, prevState) {
+  //   const { comments, article_id } = this.state;
+  //   if (comments !== prevState.comments) {
+  //     api.getCommentsByArticleId(article_id).then(data => {
+  //       this.setState({ comments: data.comments });
+  //     });
+  //   }
+  // }
 }
 
 export default CommentsList;
