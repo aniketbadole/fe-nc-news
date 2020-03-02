@@ -16,6 +16,7 @@ class CommentsList extends Component {
           <label>
             Add comment:
             <input
+              required
               type="text"
               name="body"
               size="40"
@@ -23,7 +24,7 @@ class CommentsList extends Component {
               value={this.state.body}
             />
           </label>
-          <button onClick={this.postNewComment}>Post</button>
+          <button onClick={this.postNewComment}>Post comment</button>
         </form>
         <ul className="comments-card">
           {this.state.comments.map(eachComment => {
