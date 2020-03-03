@@ -73,7 +73,7 @@ class CommentsList extends Component {
 
   addItem = newComment => {
     this.setState(state => {
-      return { comments: [newComment.comment, ...state.comments] };
+      return { comments: [newComment.comment, ...state.comments], body: "" };
     });
   };
 

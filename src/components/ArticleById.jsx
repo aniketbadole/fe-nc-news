@@ -30,10 +30,12 @@ class ArticleById extends Component {
           <div className="article-body">
             <h1>{title}</h1>
             <Link to={`/users/${author}`}>
-              <h2>{author}</h2>
+              <h2 className="heading-link">{author}</h2>
             </Link>
             <h3>
-              {created_at} in {topic}
+              {new Date(created_at).getDate()}
+              {" / "} {new Date(created_at).getMonth()} {" / "}
+              {new Date(created_at).getFullYear()} in {topic}
             </h3>
             <p className="article-body">{body}</p>
             <ChangeVotes votes={votes} article_id={article_id} />
@@ -60,3 +62,5 @@ class ArticleById extends Component {
 }
 
 export default ArticleById;
+
+// return "t", "s";
