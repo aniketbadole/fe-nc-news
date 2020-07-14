@@ -1,68 +1,76 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About this project
+**NCReddit** is a news aggregation web application build with React. It is a fully responsive app which provides a list of articles, comments and users.
 
-## Available Scripts
+The project can be accessed from the link here: https://github.com/aniketbadole/fe-nc-news
 
-In the project directory, you can run:
+The users can read all articles, comments and vote on any article or comment. In order to post a new comment, user will need to log in to the website. By default, user is logged in by the username *jessjelly*. User can delete their own comments. The complete list of all users is given below:
 
-### `npm start`
+- jessjelly
+- tickle122
+- grumpy19
+- happyamy2016
+- cooljmessy
+- weegembump
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Repositories
+The back end API for this project can be accessed here:
+- On GitHub: https://github.com/aniketbadole/be-nc-news
+- On Heroku: https://aniket-nc-news.herokuapp.com/api/
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Prerequisites
+This application was build in Javascript and uses the following technologies:
 
-### `npm test`
+**Back End:**
+- Node.js
+- Express
+- PostgreSQL
+- Mocha
+- Chai
+- SuperTest
+- Nodemon
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Front End:**
+- React (create-react-app)
+- Jest
+- JSX
+- HTML5, CSS3
+- Flexbox / Grid
+- Axios
+- Link / Router
 
-### `npm run build`
+## Installation
+We recommend using Visual Studio Code editor to edit/read the code. To run the project, you will need the following tools:
+- Node.js
+- Node Package Manager (npm)
+- GitHub account (to fork and clone the repository)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Once you have all of the prerequisites, **fork** the repository by navigating to the repository GitHub page. Once forked, GitHub will redirect you to your own repository. Now you can **Clone or Download** it. Copy the link to your repository (it should end with .git)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Open **terminal** and navigate to the directory where you would like to download your repository and then run this command:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<code>git clone &lt;your repository url&gt;</code>
 
-### `npm run eject`
+Make sure you replace &lt;your repository url&gt; with your own repository link.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Now, install dependencies required for this project using the following command:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<code>npm install</code>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## File structure
+The front end project is separated in various Functional and Class based React components. Most of these files are inside the components folder. In the root directory of the project, you will find `App.jsx`.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The `App.jsx` file contains the app itself, including the header, nav bar, all routes and the footer. All of the files, functions, classes and variables have been named as per the standard programming naming convention for the ease of understanding.
 
-## Learn More
+All of the functional and class based components are located in the components folder.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The main style sheet `App.css` is located in the root directory of the project. Page specific styling can be accessed from `components/css` folder. This project is fully responsive and can be viewed on a mobile device. To achieve responsiveness, `Flexbox` and `Grid styling` has been used. No external CSS framework or stylesheet has been used for this project.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Starting the project
+To start the project locally, open your terminal and make sure you are in the project folder. Make sure all the dependencies are installed and then run the following command:
 
-### Code Splitting
+<code>npm start</code>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+The app should now open in your browser with the url `localhost:3000`. Any changes you make in the code will automatically show on the webpage as long as the development environment is running. If you wish to exit the dev environment, simply press **Ctrl + C** on Linux or **command + C** on Mac.
 
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Author
+#### Aniket Badole
