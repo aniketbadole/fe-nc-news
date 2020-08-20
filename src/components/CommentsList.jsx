@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import * as api from "../api";
 import ChangeVotes from "./ChangeVotes";
-// import DeleteComment from "./DeleteComment";
 
 class CommentsList extends Component {
   state = {
     comments: [],
     username: "jessjelly",
-    body: ""
+    body: "",
   };
   render() {
     return (
@@ -27,7 +26,7 @@ class CommentsList extends Component {
           <button onClick={this.postNewComment}>Post comment</button>
         </form>
         <ul className="comments-card">
-          {this.state.comments.map(eachComment => {
+          {this.state.comments.map((eachComment) => {
             return (
               <li key={eachComment.comment_id} className="each-comment">
                 <p>{eachComment.body}</p>
@@ -39,10 +38,6 @@ class CommentsList extends Component {
                 />
                 <p>{eachComment.created_at}</p>
                 {eachComment.author === this.state.username && (
-                  // <DeleteComment
-                  //   comment_id={eachComment.comment_id}
-                  //   removeComment={this.removeComment}
-                  // />
                   <button
                     onClick={() =>
                       this.handleDeleteComment(eachComment.comment_id)
@@ -59,20 +54,22 @@ class CommentsList extends Component {
     );
   }
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  postNewComment = event => {
+  postNewComment = (event) => {
     event.preventDefault();
     const { username, body } = this.state;
-    api.postComment(this.props.article_id, username, body).then(newComment => {
-      this.addItem(newComment);
-    });
+    api
+      .postComment(this.props.article_id, username, body)
+      .then((newComment) => {
+        this.addItem(newComment);
+      });
   };
 
-  addItem = newComment => {
-    this.setState(state => {
+  addItem = (newComment) => {
+    this.setState((state) => {
       return { comments: [newComment.comment, ...state.comments], body: "" };
     });
   };
@@ -81,37 +78,29 @@ class CommentsList extends Component {
     const { article_id } = this.props;
     console.log(article_id, "cdm");
 
-    api.getCommentsByArticleId(article_id).then(data => {
+    api.getCommentsByArticleId(article_id).then((data) => {
       this.setState({ comments: data.comments });
     });
   }
 
-  handleDeleteComment = comment_id => {
+  handleDeleteComment = (comment_id) => {
     console.log(comment_id, "<< comment_id");
-    api.deleteComment(comment_id).then(deleted_comment => {
+    api.deleteComment(comment_id).then((deleted_comment) => {
       this.removeComment(comment_id);
     });
   };
 
-  removeComment = deleted_comment => {
+  removeComment = (deleted_comment) => {
     console.log(deleted_comment, "deletedcomment");
 
-    this.setState(state => {
+    this.setState((state) => {
       return {
         comments: [...state.comments].filter(
-          eachComment => eachComment.comment_id !== deleted_comment
-        )
+          (eachComment) => eachComment.comment_id !== deleted_comment
+        ),
       };
     });
   };
-  // componentDidUpdate(prevProps, prevState) {
-  //   const { comments, article_id } = this.state;
-  //   if (comments !== prevState.comments) {
-  //     api.getCommentsByArticleId(article_id).then(data => {
-  //       this.setState({ comments: data.comments });
-  //     });
-  //   }
-  // }
 }
 
 export default CommentsList;

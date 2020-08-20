@@ -7,7 +7,7 @@ class Articles extends Component {
     articles: [],
     isSorting: false,
     isLoading: true,
-    selectedTopic: null
+    selectedTopic: null,
   };
 
   render() {
@@ -37,7 +37,7 @@ class Articles extends Component {
     );
   }
 
-  handleClick = event => {
+  handleClick = (event) => {
     event.preventDefault();
 
     let query = {};
@@ -48,49 +48,25 @@ class Articles extends Component {
       query.sort_by = event.target.name;
       query.order = "desc";
     }
-    api.getAllArticles(query).then(data => {
-      this.setState(currentState => {
+    api.getAllArticles(query).then((data) => {
+      this.setState((currentState) => {
         return { articles: data.articles, isSorting: !currentState.isSorting };
       });
     });
   };
 
-  // filterTopics = event => {
-
-  //   this.setState({ selectedTopic: this.props.topic });
-  // };
-
   componentDidMount() {
-    // api.getAllArticles({}).then(data => {
-    //   this.setState({
-    //     articles: data.articles,
-    //     isLoading: false
-    //     // selectedTopic: this.props.topic
-    //   });
-    // });
-    this.fetchArticles({}).then(data => {
+    this.fetchArticles({}).then((data) => {
       this.setState({
         articles: data.articles,
-        isLoading: false
+        isLoading: false,
       });
     });
   }
 
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.topic !== prevProps.topic) {
-  //     let query = { topic: this.props.topic };
-  //     return api.getAllArticles(query).then(data => {
-  //       this.setState({ articles: data.articles });
-  //     });
-  //   }
-  // }
-
   fetchArticles = () => {
     let query = { topic: this.props.topic };
     return api.getAllArticles(query);
-    // .then(data => {
-    //   this.setState({ articles: data.articles });
-    // });
   };
 }
 
